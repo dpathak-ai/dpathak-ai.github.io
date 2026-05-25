@@ -77,8 +77,8 @@ section{padding:120px 0}
 .pcard-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
 .chip{font-family:'Fira Code',monospace;font-size:10px;padding:4px 10px;border-radius:4px;background:var(--s2);color:var(--t3);border:1px solid var(--b1);letter-spacing:.03em;transition:all .2s}
 .chip:hover{color:var(--t2);border-color:var(--b2)}
-.pcard-link{font-family:'Fira Code',monospace;font-size:11px;color:var(--c1);text-decoration:none;display:inline-flex;align-items:center;gap:8px;letter-spacing:.06em;transition:gap .2s}
-.pcard-link:hover{gap:14px}
+.pcard-link{font-family:'Fira Code',monospace;font-size:11px;color:var(--c1);text-decoration:none;display:inline-block;letter-spacing:.06em;padding:4px 0;cursor:pointer;position:relative;z-index:10}
+.pcard-link:hover{text-decoration:underline;text-underline-offset:3px}
 
 /* big card layout */
 .pcard.proj-big{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
@@ -274,7 +274,7 @@ footer{border-top:1px solid var(--b1);padding:24px 80px;display:flex;justify-con
       </div>
       <div class="skill-section">
         <div class="sk-title">Databases</div>
-        <div class="sk-tags"><span class="sk-tag">MySql</span><span class="sk-tag">PostgreSQL</span><span class="sk-tag">Redis</span><span class="sk-tag">pgvector</span><span class="sk-tag">SQLite</span></div>
+        <div class="sk-tags"><span class="sk-tag">MySql</span><span class="sk-tag">PostgreSQL</span><span class="sk-tag">Redis</span><span class="sk-tag">pgvector</span><span class="sk-tag">SQLite</span>/div>
       </div>
       <div class="skill-section">
         <div class="sk-title">Infra</div>
