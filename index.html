@@ -32,20 +32,28 @@ body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--t1);transiti
 /* ── HERO full-bleed ── */
 .hero{min-height:100vh;display:grid;grid-template-rows:1fr auto;padding:0;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 80% 50%,rgba(88,196,160,.06) 0%,transparent 70%),radial-gradient(ellipse 40% 80% at 20% 80%,rgba(88,152,232,.05) 0%,transparent 60%)}
-.hero-content{padding:160px 80px 0;position:relative;z-index:1;max-width:1300px}
+.hero-content{padding:100px 80px 0;position:relative;z-index:1;max-width:1300px;width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-left{}
+.hero-right{display:flex;align-items:center;justify-content:center;padding-top:0}
+/* ── ARCH DIAGRAM ── */
+.arch-diag{width:100%;max-width:380px}
+.arch-diag svg{width:100%;height:auto}
+.diag-node{opacity:0;transition:opacity .4s}
+.diag-edge{opacity:0;transition:opacity .4s}
 .hero-tag{font-family:'Fira Code',monospace;font-size:11px;color:var(--c1);letter-spacing:.15em;text-transform:uppercase;margin-bottom:32px;display:flex;align-items:center;gap:12px}
 .hero-tag::after{content:'';flex:1;max-width:80px;height:1px;background:var(--c1);opacity:.4}
 .hero-h{font-family:'Fraunces',serif;font-size:clamp(64px,9vw,120px);line-height:.88;font-weight:300;letter-spacing:-.04em;margin-bottom:32px}
 .hero-h .ln1{color:var(--t1)}
 .hero-h .ln2{font-style:italic;color:var(--c1)}
-.hero-desc{font-size:16px;color:var(--t2);max-width:520px;line-height:1.8;margin-bottom:56px;font-weight:400}
+.hero-desc{font-size:16px;color:var(--t2);max-width:480px;line-height:1.8;margin-bottom:56px;font-weight:400}
 .hero-ctas{display:flex;gap:14px;margin-bottom:80px}
 .btn{display:inline-flex;align-items:center;gap:10px;font-family:'Fira Code',monospace;font-size:11px;letter-spacing:.06em;padding:13px 26px;border-radius:6px;text-decoration:none;transition:all .2s;border:none;cursor:pointer}
 .btn-fill{background:var(--c1);color:var(--bg)}
 .btn-fill:hover{opacity:.85;transform:translateY(-2px);box-shadow:0 8px 24px rgba(88,196,160,.25)}
 .btn-border{background:transparent;color:var(--t2);border:1px solid var(--b2)}
 .btn-border:hover{color:var(--t1);border-color:var(--c1)}
-.hero-footer{border-top:1px solid var(--b1);padding:28px 80px;display:flex;align-items:center;gap:48px;position:relative;z-index:1}
+.hero-footer{border-top:1px solid var(--b1);padding:28px 0;position:relative;z-index:1}
+.hero-footer-inner{max-width:1300px;width:100%;margin:0 auto;padding:0 80px;display:flex;align-items:center;gap:48px}
 .hf-stat{display:flex;flex-direction:column;gap:4px}
 .hf-val{font-family:'Fraunces',serif;font-size:28px;font-weight:300;color:var(--t1);font-style:italic}
 .hf-lbl{font-family:'Fira Code',monospace;font-size:10px;color:var(--t3);letter-spacing:.1em}
@@ -118,7 +126,7 @@ footer{border-top:1px solid var(--b1);padding:24px 80px;display:flex;justify-con
 .reveal.on{opacity:1;transform:none}
 
 @media(max-width:900px){
-  .hero-content,.hero-footer,.wrap,footer{padding-left:24px;padding-right:24px}
+  .hero-content,.hero-footer-inner,.wrap,footer{padding-left:24px;padding-right:24px}
   .hero-h{font-size:clamp(48px,12vw,80px)}
   .proj-grid{grid-template-columns:1fr}
   .pcard.proj-big{grid-template-columns:1fr}
@@ -126,6 +134,8 @@ footer{border-top:1px solid var(--b1);padding:24px 80px;display:flex;justify-con
   .contact-wrap{grid-template-columns:1fr}
   .clinks{min-width:unset}
   footer{flex-direction:column;gap:8px}
+  .hero-content{grid-template-columns:1fr;gap:0}
+  .hero-right{display:none}
 }
 </style>
 </head>
@@ -140,25 +150,96 @@ footer{border-top:1px solid var(--b1);padding:24px 80px;display:flex;justify-con
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-tag">Senior Backend Engineer</div>
-    <h1 class="hero-h">
-      <div class="ln1">Deepak</div>
-      <div class="ln2">Pathak</div>
-    </h1>
-    <p class="hero-desc">Production-grade APIs and LLM agent systems in Python &amp; Java. From async microservices to intelligent RAG pipelines — built to scale and hold up under real load.</p>
-    <div class="hero-ctas">
-      <a href="https://github.com/dpathak-ai" target="_blank" class="btn btn-fill">github.com/dpathak-ai</a>
-      <a href="https://www.linkedin.com/in/dpathak-profile" target="_blank" class="btn btn-border">LinkedIn →</a>
+    <div class="hero-left">
+      <div class="hero-tag">Senior Backend Engineer</div>
+      <h1 class="hero-h">
+        <div class="ln1">Deepak</div>
+        <div class="ln2">Pathak</div>
+      </h1>
+      <p class="hero-desc">Production-grade APIs and LLM agent systems in Python &amp; Java. From async microservices to intelligent RAG pipelines — built to scale and hold up under real load.</p>
+      <div class="hero-ctas">
+        <a href="https://github.com/dpathak-ai" target="_blank" class="btn btn-fill">github.com/dpathak-ai</a>
+        <a href="https://www.linkedin.com/in/dpathak-profile" target="_blank" class="btn btn-border">LinkedIn →</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="arch-diag">
+        <svg viewBox="0 0 320 420" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--b2)"/></marker>
+            <marker id="arrg" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--c1)"/></marker>
+            <marker id="arrb" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--c2)"/></marker>
+          </defs>
+
+          <!-- user query -->
+          <g class="diag-node" id="dn0">
+            <rect x="100" y="8" width="120" height="36" rx="8" fill="var(--s1)" stroke="var(--b2)" stroke-width="1"/>
+            <text x="160" y="30" font-family="Fira Code,monospace" font-size="11" fill="var(--t2)" text-anchor="middle">user query</text>
+          </g>
+
+          <!-- FastAPI -->
+          <g class="diag-node" id="dn1">
+            <rect x="92" y="68" width="136" height="44" rx="8" fill="var(--s2)" stroke="var(--c1)" stroke-width="1"/>
+            <text x="160" y="86" font-family="Fira Code,monospace" font-size="11" fill="var(--c1)" text-anchor="middle">FastAPI</text>
+            <text x="160" y="103" font-family="Fira Code,monospace" font-size="9.5" fill="var(--t3)" text-anchor="middle">async endpoint</text>
+          </g>
+
+          <!-- pgvector -->
+          <g class="diag-node" id="dn2">
+            <rect x="8" y="148" width="130" height="44" rx="8" fill="var(--s2)" stroke="var(--c2)" stroke-width="1"/>
+            <text x="73" y="166" font-family="Fira Code,monospace" font-size="11" fill="var(--c2)" text-anchor="middle">pgvector</text>
+            <text x="73" y="183" font-family="Fira Code,monospace" font-size="9.5" fill="var(--t3)" text-anchor="middle">RAG retriever</text>
+          </g>
+
+          <!-- LangGraph -->
+          <g class="diag-node" id="dn3">
+            <rect x="182" y="148" width="130" height="44" rx="8" fill="var(--s2)" stroke="var(--c1)" stroke-width="1"/>
+            <text x="247" y="166" font-family="Fira Code,monospace" font-size="11" fill="var(--c1)" text-anchor="middle">LangGraph</text>
+            <text x="247" y="183" font-family="Fira Code,monospace" font-size="9.5" fill="var(--t3)" text-anchor="middle">agent graph</text>
+          </g>
+
+          <!-- GPT-4o -->
+          <g class="diag-node" id="dn4">
+            <rect x="92" y="228" width="136" height="44" rx="8" fill="var(--s2)" stroke="var(--c3)" stroke-width="1"/>
+            <text x="160" y="246" font-family="Fira Code,monospace" font-size="11" fill="var(--c3)" text-anchor="middle">GPT-4o</text>
+            <text x="160" y="263" font-family="Fira Code,monospace" font-size="9.5" fill="var(--t3)" text-anchor="middle">LLM judge · response</text>
+          </g>
+
+          <!-- HITL -->
+          <g class="diag-node" id="dn5">
+            <rect x="92" y="308" width="136" height="44" rx="8" fill="var(--s2)" stroke="#c078d4" stroke-width="1"/>
+            <text x="160" y="326" font-family="Fira Code,monospace" font-size="11" fill="#c078d4" text-anchor="middle">HITL pause</text>
+            <text x="160" y="343" font-family="Fira Code,monospace" font-size="9.5" fill="var(--t3)" text-anchor="middle">high-severity incidents</text>
+          </g>
+
+          <!-- AgentResponse -->
+          <g class="diag-node" id="dn6">
+            <rect x="100" y="378" width="120" height="36" rx="8" fill="var(--s1)" stroke="var(--b2)" stroke-width="1"/>
+            <text x="160" y="400" font-family="Fira Code,monospace" font-size="11" fill="var(--t2)" text-anchor="middle">AgentResponse</text>
+          </g>
+
+          <!-- edges -->
+          <line class="diag-edge" id="de01" x1="160" y1="44" x2="160" y2="66" stroke="var(--b2)" stroke-width="1" marker-end="url(#arr)"/>
+          <path class="diag-edge" id="de12" d="M128,112 Q73,130 73,146" stroke="var(--c2)" stroke-width="1" fill="none" marker-end="url(#arrb)"/>
+          <path class="diag-edge" id="de13" d="M192,112 Q247,130 247,146" stroke="var(--c1)" stroke-width="1" fill="none" marker-end="url(#arrg)"/>
+          <path class="diag-edge" id="de24" d="M73,192 Q73,210 128,226" stroke="var(--b2)" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+          <path class="diag-edge" id="de34" d="M247,192 Q247,210 192,226" stroke="var(--b2)" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+          <line class="diag-edge" id="de45" x1="160" y1="272" x2="160" y2="306" stroke="var(--b2)" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arr)"/>
+          <line class="diag-edge" id="de56" x1="160" y1="352" x2="160" y2="376" stroke="var(--b2)" stroke-width="1" marker-end="url(#arr)"/>
+        </svg>
+      </div>
     </div>
   </div>
   <div class="hero-footer">
-    <div class="hf-stat"><div class="hf-val">15+</div><div class="hf-lbl">years experience</div></div>
-    <div class="hf-divider"></div>
-    <div class="hf-stat"><div class="hf-val">2</div><div class="hf-lbl">primary stacks</div></div>
-    <div class="hf-divider"></div>
-    <div class="hf-stat"><div class="hf-val">5+</div><div class="hf-lbl">open source projects</div></div>
-    <div class="hf-divider"></div>
-    <div class="hf-stat"><div class="hf-val" style="font-size:16px;line-height:1.4;font-style:normal;font-family:'Fira Code',monospace;font-weight:300">Pleasanton<br/>California</div><div class="hf-lbl">location</div></div>
+    <div class="hero-footer-inner">
+      <div class="hf-stat"><div class="hf-val">15+</div><div class="hf-lbl">years experience</div></div>
+      <div class="hf-divider"></div>
+      <div class="hf-stat"><div class="hf-val">2</div><div class="hf-lbl">primary stacks</div></div>
+      <div class="hf-divider"></div>
+      <div class="hf-stat"><div class="hf-val">5+</div><div class="hf-lbl">open source projects</div></div>
+      <div class="hf-divider"></div>
+      <div class="hf-stat"><div class="hf-val" style="font-size:16px;line-height:1.4;font-style:normal;font-family:'Fira Code',monospace;font-weight:300">Pleasanton<br/>California</div><div class="hf-lbl">location</div></div>
+    </div>
   </div>
 </div>
 
@@ -318,6 +399,27 @@ footer{border-top:1px solid var(--b1);padding:24px 80px;display:flex;justify-con
 </footer>
 
 <script>
+// Arch diagram animation — fires when hero is in view
+(function(){
+  const seq=['dn0','de01','dn1','de12','de13','dn2','dn3','de24','de34','dn4','de45','dn5','de56','dn6'];
+  let started=false;
+  function animate(){
+    if(started)return; started=true;
+    seq.forEach((id,i)=>{
+      setTimeout(()=>{
+        const el=document.getElementById(id);
+        if(el){el.style.opacity='1';}
+      },i*160);
+    });
+  }
+  const diag=document.querySelector('.arch-diag');
+  if(!diag){return;}
+  const io=new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){animate();io.disconnect();}
+  },{threshold:.2});
+  io.observe(diag);
+})();
+
 function toggleTheme(){
   const h=document.documentElement;
   const d=h.getAttribute('data-theme')==='dark';
